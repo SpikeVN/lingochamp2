@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingoChamp2 Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/socket.io-client@4.7.2/dist/socket.io.min.js"></script>
+</head>
+
+<script>
+    const submitShit = () => {
+        let username = $(".inputbox input.username")[0].value
+        let password = $(".inputbox input.password")[0].value
+        const socket = io("/", {
+            transport: ["websocket"],
+            auth: {
+                username
+            }
+        });
+    }
+</script>
+
+<body>
+    <div class="content">
+        <div class="disclaimer">
+            <h1>Small reminder from EpiX Developers</h1>
+            <p>While it may look tempting to tinker with these controls, we advise you against touching these things
+                without the
+                permission from the event organizers. You may do so in the main challenges.<br>
+                Thank you for not letting your intrusive thoughts win.</p>
+        </div>
+
+        <div class="panel">
+            <div>
+                <h2>REGISTRATION PANEL</h2>
+                <h1>LingoChamp 2</h1>
+            </div>
+
+            <div class="inputbox">
+                <p>What is your name?</p>
+                <input class="username" placeholder="Username" type="text">
+
+                <p>And your secret authorization?</p>
+                <input class="password" placeholder="Authorization" type="password">
+            </div>
+
+            <button class="center" type="submit" onclick="submitShit()">OK, sign me up!</button>
+            <p class="center copy">
+                Copyright © 2023-2024 EpiX Team CBN. All rights reserved.
+            </p>
+
+        </div>
+    </div>
+</body>
+<style>
+    * {
+        font-family: DM Sans, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+    }
+
+    body {
+        color: #000;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: #F2FFBD;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-top: 2vh;
+    }
+
+    .disclaimer {
+        margin: 1rem;
+        max-width: 50rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 9px;
+        border: 1px solid #000;
+        background: #FFF16F;
+    }
+
+    .disclaimer p {
+        text-align: justify;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .disclaimer h1 {
+        color: #000;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 70%;
+    }
+
+    .panel {
+        border-radius: 18px;
+        border: 2px solid #000;
+        background: #FFF;
+        box-shadow: 7px 7px 0px 0px #000;
+        width: 30rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        /* position: absolute; */
+    }
+
+    .panel h2 {
+        color: #838383;
+        margin-top: 0;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .panel h1 {
+        color: #000;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-top: -1rem;
+        margin-bottom: 0;
+    }
+
+    .panel .inputbox p {
+        color: #4B4B4B;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 3px;
+    }
+
+    .panel .inputbox input {
+        border-radius: 9px;
+        border: 2px solid #000;
+        background: #FFF;
+        min-height: 2rem;
+        min-width: 29rem;
+        font-size: 16px;
+        padding-left: 10px;
+    }
+
+    .center {
+        margin: 0 auto;
+    }
+
+
+    .panel button {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        max-width: 15rem;
+        color: #fff;
+        border: 2px solid #FFF;
+        background: #000;
+        box-shadow: 6px 6px 0px 0px #000;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .panel .copy {
+        color: #626262;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+</style>
+
+</html>
